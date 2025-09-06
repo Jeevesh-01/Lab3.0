@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pettxo Early User Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div class="screen" id="welcome-screen">
+            <h1>🐾 Welcome to Pettxo!</h1>
+            <p>This 2-minute survey helps us build the future of pet care. Your answers shape Pettxo.</p>
+            <button id="start-btn">Start</button>
+        </div>
+
+        <!-- Survey Screens -->
+        <div class="screen" id="survey-screen" style="display:none;">
+            <form id="survey-form">
+                <div class="question" data-step="1">
+                    <h2>Q1. Do you currently own a pet?</h2>
+                    <label><input type="radio" name="q1" value="Yes"> Yes</label>
+                    <label><input type="radio" name="q1" value="Planning"> No, but planning to get one soon</label>
+                    <label><input type="radio" name="q1" value="No"> No, and not planning to get one</label>
+                </div>
+
+                <!-- Pet Owner Branch -->
+                <div class="question pet-owner" data-step="2" style="display:none;">
+                    <h2>Q2. What type(s) of pet do you have?</h2>
+                    <label><input type="checkbox" name="pet_type" value="Dog"> Dog</label>
+                    <label><input type="checkbox" name="pet_type" value="Cat"> Cat</label>
+                    <label><input type="checkbox" name="pet_type" value="Bird"> Bird</label>
+                    <label><input type="checkbox" name="pet_type" value="Fish"> Fish</label>
+                    <label><input type="checkbox" name="pet_type" value="Rabbit"> Rabbit</label>
+                    <label><input type="checkbox" name="pet_type" value="Other"> Other</label>
+                </div>
+                <div class="question pet-owner" data-step="3" style="display:none;">
+                    <h2>Q3. What breed(s) is your pet? (Optional)</h2>
+                    <input type="text" name="q3" placeholder="Type your answer">
+                </div>
+                <div class="question pet-owner" data-step="4" style="display:none;">
+                    <h2>Q4. What’s your pet’s gender?</h2>
+                    <label><input type="radio" name="q4" value="Male"> Male</label>
+                    <label><input type="radio" name="q4" value="Female"> Female</label>
+                    <label><input type="radio" name="q4" value="Prefer not to say"> Prefer not to say</label>
+                </div>
+                <div class="question pet-owner" data-step="5" style="display:none;">
+                    <h2>Q5. What’s your biggest challenge as a pet parent?</h2>
+                    <label><input type="radio" name="q5" value="Finding reliable services"> Finding reliable services (vet, grooming, walkers)</label>
+                    <label><input type="radio" name="q5" value="Managing health and vaccinations"> Managing health and vaccinations</label>
+                    <label><input type="radio" name="q5" value="Connecting with other pet parents"> Connecting with other pet parents</label>
+                    <label><input type="radio" name="q5" value="Buying trusted products"> Buying trusted products</label>
+                    <label><input type="radio" name="q5" value="Other"> Other <input type="text" name="q5_other" placeholder="Specify"></label>
+                </div>
+
+                <!-- Future Pet Parent Branch -->
+                <div class="question future-parent" data-step="2b" style="display:none;">
+                    <h2>Q2b. When do you plan to get a pet?</h2>
+                    <label><input type="radio" name="q2b" value="Within 6 months"> Within 6 months</label>
+                    <label><input type="radio" name="q2b" value="Within 1 year"> Within 1 year</label>
+                    <label><input type="radio" name="q2b" value="Not sure"> Not sure</label>
+                </div>
+                <div class="question future-parent" data-step="3b" style="display:none;">
+                    <h2>Q3b. What type of pet would you prefer?</h2>
+                    <label><input type="radio" name="q3b" value="Dog"> Dog</label>
+                    <label><input type="radio" name="q3b" value="Cat"> Cat</label>
+                    <label><input type="radio" name="q3b" value="Bird"> Bird</label>
+                    <label><input type="radio" name="q3b" value="Rabbit"> Rabbit</label>
+                    <label><input type="radio" name="q3b" value="Other"> Other</label>
+                </div>
+                <div class="question future-parent" data-step="4b" style="display:none;">
+                    <h2>Q4b. What’s your main concern before getting a pet?</h2>
+                    <label><input type="radio" name="q4b" value="Responsibility/time commitment"> Responsibility/time commitment</label>
+                    <label><input type="radio" name="q4b" value="Cost of care"> Cost of care</label>
+                    <label><input type="radio" name="q4b" value="Finding trusted services"> Finding trusted services</label>
+                    <label><input type="radio" name="q4b" value="Lack of information"> Lack of information</label>
+                    <label><input type="radio" name="q4b" value="Other"> Other <input type="text" name="q4b_other" placeholder="Specify"></label>
+                </div>
+
+                <!-- Service Provider Branch -->
+                <div class="question service-provider" data-step="2c" style="display:none;">
+                    <h2>Q2c. Would you be interested in offering pet services to others?</h2>
+                    <label><input type="radio" name="q2c" value="Professional"> Yes, professionally (paid services)</label>
+                    <label><input type="radio" name="q2c" value="Casual"> Yes, casually (pet sitting, walking)</label>
+                    <label><input type="radio" name="q2c" value="No"> No, not interested</label>
+                </div>
+                <div class="question service-provider" data-step="3c" style="display:none;">
+                    <h2>Q3c. What kind of services would you be most interested in providing?</h2>
+                    <label><input type="checkbox" name="q3c" value="Pet sitting"> Pet sitting</label>
+                    <label><input type="checkbox" name="q3c" value="Dog walking"> Dog walking</label>
+                    <label><input type="checkbox" name="q3c" value="Grooming"> Grooming</label>
+                    <label><input type="checkbox" name="q3c" value="Training"> Training</label>
+                    <label><input type="checkbox" name="q3c" value="Play dates"> Play dates</label>
+                    <label><input type="checkbox" name="q3c" value="Other"> Other</label>
+                </div>
+
+                <!-- General Questions -->
+                <div class="question general" data-step="6" style="display:none;">
+                    <h2>Q6. Which apps or services do you currently use for pet needs?</h2>
+                    <input type="text" name="q6" placeholder="Type your answer">
+                </div>
+                <div class="question general" data-step="7" style="display:none;">
+                    <h2>Q7. How often do you consume pet-related content online?</h2>
+                    <label><input type="radio" name="q7" value="Daily"> Daily</label>
+                    <label><input type="radio" name="q7" value="Weekly"> Weekly</label>
+                    <label><input type="radio" name="q7" value="Occasionally"> Occasionally</label>
+                    <label><input type="radio" name="q7" value="Rarely"> Rarely</label>
+                </div>
+                <div class="question general" data-step="8" style="display:none;">
+                    <h2>Q8. Would you use a single platform that combines social community + pet care services + discovery?</h2>
+                    <label><input type="radio" name="q8" value="Definitely yes"> Definitely yes</label>
+                    <label><input type="radio" name="q8" value="Maybe"> Maybe</label>
+                    <label><input type="radio" name="q8" value="No"> No</label>
+                </div>
+                <div class="question general" data-step="9" style="display:none;">
+                    <h2>Q9. Would you like early access to Pettxo when we launch?</h2>
+                    <label><input type="radio" name="q9" value="Yes"> Yes, sign me up!</label>
+                    <label><input type="radio" name="q9" value="Maybe"> Maybe later</label>
+                    <label><input type="radio" name="q9" value="No"> No</label>
+                </div>
+                <div class="question general" data-step="email" style="display:none;">
+                    <h2 id="email-question">Your email</h2>
+                    <input type="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="question general" data-step="10" style="display:none;">
+                    <h2>Q10. Any features or services you’d love to see in Pettxo? (Optional)</h2>
+                    <textarea name="q10" placeholder="Type your ideas"></textarea>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="nav-buttons">
+                    <button type="button" id="prev-btn" style="display:none;">Previous</button>
+                    <button type="button" id="next-btn">Next</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Thank You Screen -->
+        <div class="screen" id="thankyou-screen" style="display:none;">
+            <h1>🎉 Thank you for helping shape Pettxo!</h1>
+            <p>We’ll keep you updated. Follow us on Instagram @pettxo for sneak peeks.</p>
+            <a href="https://pettxo.com" target="_blank"><button>Visit Pettxo.com</button></a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
